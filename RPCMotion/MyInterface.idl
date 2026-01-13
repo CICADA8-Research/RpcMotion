@@ -1,0 +1,49 @@
+[
+    uuid(12345778-1234-ABCD-EF00-0123456789AC),
+    version(1.0),
+    pointer_default(unique)
+]
+interface MyRpcInterface
+{
+import "ms-dtyp.idl";
+
+    DWORD Ping(
+        [in] handle_t hBinding,
+        [out, string] wchar_t** response
+    );
+
+    DWORD Execute(
+        [in] handle_t hBinding,
+        [in, string] wchar_t* input,
+        [out, string] wchar_t** output
+    );
+
+    DWORD ExecuteSilent(
+        [in] handle_t hBinding,
+        [in, string] wchar_t* input
+    );
+
+    DWORD UploadFile(
+        [in] handle_t hBinding,
+        [in, string] wchar_t* remotePath,
+        [in] DWORD fileSize,
+        [in, size_is(fileSize)] byte fileData[]
+    );
+
+    DWORD DownloadFile(
+        [in] handle_t hBinding,
+        [in, string] wchar_t* remotePath,
+        [out] DWORD* fileSize,
+        [out, size_is(, *fileSize)] byte** fileData
+    );
+
+    DWORD ListDirectory(
+        [in] handle_t hBinding,
+        [in, string] wchar_t* path,
+        [out, string] wchar_t** output
+    );
+
+    VOID ShutDown(
+        [in] handle_t hBinding
+    );
+}
