@@ -1,5 +1,5 @@
 # RpcMotion
-Execute commands, in/exfiltrate using your custom RPC Server
+Execute commands, in/exfiltrate files using your custom RPC Server
 
 <img width="614" height="389" alt="изображение" src="https://github.com/user-attachments/assets/288192c7-3cad-41d6-9395-2b96e85a079f" />
 
